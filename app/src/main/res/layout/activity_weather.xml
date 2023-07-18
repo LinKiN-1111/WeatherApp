@@ -10,29 +10,34 @@
         android:id="@+id/bing_pic_img"
         android:scaleType="centerCrop"/>
 
-    <ScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/weather_layout"
-        android:scrollbars="none"
-        android:overScrollMode="never">
-
-        <LinearLayout
+        android:id="@+id/swipe_refresh">
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:id="@+id/weather_layout"
+            android:scrollbars="none"
+            android:overScrollMode="never">
 
-            <include layout = "@layout/title"/>
-            <include layout = "@layout/now"/>
-            <include layout = "@layout/forecast"/>
-            <include layout = "@layout/aqi"/>
-            <include layout = "@layout/suggestion"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <include layout = "@layout/title"/>
+                <include layout = "@layout/now"/>
+                <include layout = "@layout/forecast"/>
+                <include layout = "@layout/aqi"/>
+                <include layout = "@layout/suggestion"/>
 
+            </LinearLayout>
 
+        </ScrollView>
 
-    </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 
 </FrameLayout>
