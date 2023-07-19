@@ -13,14 +13,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Utility {
+
+    /**
+     * 我们提供了handleProvincesResponse等三个方法,这三个方法分别用于解析和处理服务区返回的省级、市级以及县级数据
+     * 处理方法都是类似的,先使用JSONArray和JSONObject将数据解析出来,然后组装成实体类对象,再调用save方法将数据存储
+     */
+
     //解析服务器返回的省数据
     public static Boolean handleProvinceResponse(String response){
         if(!TextUtils.isEmpty(response)){
             try {
-                JSONArray allProvinces = new JSONArray(response);
+                JSONArray allProvinces = new JSONArray(response);   //将response回来的字符串解析成JSONArray对象
                 for(int i=0;i<allProvinces.length();i++){
-                    JSONObject provinceObject = allProvinces.getJSONObject(i);
-                    Provice provice = new Provice();
+                    JSONObject provinceObject = allProvinces.getJSONObject(i);   //分别取出每一个JSONObject对象
+                    Provice provice = new Provice();                            //取出之后存储到数据库中
                     provice.setProvinceName(provinceObject.getString("name"));
                     provice.setProvinceCode(provinceObject.getInt("id"));
                     provice.save();
@@ -75,6 +81,8 @@ public class Utility {
 
     /**
      * 将返回的json数据解析成Weather实体类
+     * 可以看到,该方法中是先通过JSONObject和JSONArray将
+     * 天气的主体内容解析出来,然后调用GSON来直接转化成Weather对象
      */
 
     public static Weather handleWeatherResponse(String response){

@@ -4,6 +4,12 @@ import org.litepal.crud.LitePalSupport;
 
 public class County extends LitePalSupport {
 
+    /**
+     * countyName 记录县的名字
+     * weatherId 记录县对应的天气,用于查询
+     * cityId  用于记录当前县所属市的id
+     */
+
     private int id;
 
     private String countyName;

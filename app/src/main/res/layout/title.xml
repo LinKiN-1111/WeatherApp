@@ -2,6 +2,8 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize">
 
+    <!-- 头布局中放置了两个TextView，一个居中显示城市名，一个居右显示更新时间。-->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

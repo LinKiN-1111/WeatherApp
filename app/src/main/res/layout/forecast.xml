@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--这里最外层使用了LinearLayout定义了一个半透明的背景,然后使用了TextView定义了一
+    个标题,接着又用了一个LinearLayout定义了一个用于显示未来几天天气的布局,不过这个
+    布局没有放入任何内容,因为这是要根据服务器返回的数据在代码中动态添加的-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"

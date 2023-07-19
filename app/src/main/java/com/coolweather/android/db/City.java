@@ -3,6 +3,11 @@ package com.coolweather.android.db;
 import org.litepal.crud.LitePalSupport;
 
 public class City extends LitePalSupport {
+    /**
+     * cityName 记录市的名字
+     * cityCode 记录市的代号
+     * provinceId 记录市当前所属省的id值
+     */
     private int id;
 
     private String cityName;

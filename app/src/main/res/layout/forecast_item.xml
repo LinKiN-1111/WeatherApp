@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--放置了四个TextView,一个用于显示天气预报日期,一个用于显示天气概况,另外两个显示最高气温和最低气温-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

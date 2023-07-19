@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--这个布局虽然有点长,但是并不复杂...
+    首先和前面一样,定义了一个LinearLayout半透明的北京,然后使用TextView定义了一个标题'
+    接下来使用LinearLayout和RelativeLayout嵌套的方式实现了一个左右平分并且居中对齐的布局
+    分别用于显示AQI和PM2.5-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"

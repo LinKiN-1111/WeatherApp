@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--首先最外层使用了一个FrameLayout,并将它的背景色改成了primary,然后在FrameLayout中嵌套了一个
+ScrollView,这是因为天气界面中的内容比较多,ScrollView可以允许我们通过滚动的方式查看屏幕外的内容
+    由于ScrollView的内部只允许存在一个直接布局,因此这里又嵌套了一个垂直方向的LinearLayout'
+    然后在LinearLayout中将刚才定义的所有布局逐个引入-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/design_default_color_primary">
 
+<!-- 存放bing的图片铺满整个屏幕-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/bing_pic_img"
         android:scaleType="centerCrop"/>
-
+<!--    最后添加一个drawerlayout以及fragment来实现切换城市功能
+        可以看到,我们在swiperRefreshLayout外面又嵌套了一层DrawerLayout
+         DrawerLayout中的第一个子控件用于作为主屏幕中显示的内容,第二个子控件
+         用于作为滑动菜单中的显示内容,所以我们此处调用了之前的碎片-->
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/drawer_layout">
-
+            <!--  添加swiperlayout来实现下拉刷新  -->
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,8 +37,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
+                    android:orientation="vertical"
+                    android:fitsSystemWindows="true">
+                    <!--  添加android:fitsSystemWindows="true"即可实现不挡住系统状态栏-->
                     <include layout = "@layout/title"/>
                     <include layout = "@layout/now"/>
                     <include layout = "@layout/forecast"/>
@@ -51,7 +60,5 @@
             android:layout_gravity="start"/>
 
     </androidx.drawerlayout.widget.DrawerLayout>
-
-
 
 </FrameLayout>

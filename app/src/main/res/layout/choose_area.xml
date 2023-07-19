@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+      布局的内容并不复杂,我们首先定义了一个头布局来作为标题栏,将布局的高度设置为actionBar的高度
+    背景色设置为colorPrimary..然后在头布局中放置了一个TextView用于显示标签的内容,放置了一个
+    button用于执行返回操作,注意,这里提前准备了一张ic_back.png图片作为按钮的背景图
+    之所以要自己定义标题栏,是因为在碎片中最好别用ActionBar或Toolbar,不然可能会出现一些其它结果
+      接下来头布局的下面定义了一个ListView,省市县的数据就显示在这里.之所以使用ListView,是因为他会
+    自动给每个子项之间添加一条分割线,而如果使用RecyclerView想实现相同的功能则会比较麻烦
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"

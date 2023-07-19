@@ -3,6 +3,12 @@ package com.coolweather.android.db;
 import org.litepal.crud.LitePalSupport;
 
 public class Provice extends LitePalSupport {
+
+    /**
+     * id是每个实体类都应该有的字段,provinceName记录省名,provinceCode记录省的代号
+     * 注意,LitePal每个实体类都需要继承LitePalSupport
+     */
+
     private int id;
     private String provinceName;
     private int provinceCode;

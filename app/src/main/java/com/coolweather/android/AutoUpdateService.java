@@ -22,6 +22,11 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+//可以看到,在onStartCommand方法中先是调用了updateWeather方法来更新天气
+//然后调用了updateBingpic方法来更新背景图片(更新不了,没做),然后将更新后的数据
+//直接存储到了SharedPreferences中,打开WeatherActivity会优先从该处读取数据
+
+//之后就是创建定时任务了
 public class AutoUpdateService extends Service {
     public AutoUpdateService() {
     }
@@ -39,6 +44,7 @@ public class AutoUpdateService extends Service {
         long triggerAtTime = SystemClock.elapsedRealtime()+anHour;
         Intent i = new Intent(this,AutoUpdateService.class);
         PendingIntent pi;
+        //注意,安卓不同版本的调用有所区别,所以要用这个来处理
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
             pi = PendingIntent.getService(this,0,i,PendingIntent.FLAG_MUTABLE);
         } else {
